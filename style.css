@@ -449,6 +449,10 @@ a {
   white-space: nowrap;
 }
 
+.icon_ellipsis {
+  margin-left: 50px;
+}
+
 .section_content {
   grid-area: section_content;
   display: flex;
@@ -687,7 +691,7 @@ a {
   letter-spacing: 0.07em;
 }
 
-.icon_points {
+.horizontal_ellipsis {
   cursor: pointer; /* Указатель при наведении */
   perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
   transform-origin: center; /* Точка начала трансформации */
@@ -695,7 +699,7 @@ a {
     transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.icon_points:hover {
+.horizontal_ellipsis:hover {
   transform: scale(1.1) translateZ(20px); /* Увеличиваем и выдвигаем вперед */
   opacity: 1; /* Убираем полупрозрачность */
 }
