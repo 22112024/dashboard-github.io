@@ -449,10 +449,6 @@ a {
   white-space: nowrap;
 }
 
-.icon_ellipsis {
-  margin-left: 50px;
-}
-
 .section_content {
   grid-area: section_content;
   display: flex;
