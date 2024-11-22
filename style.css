@@ -1,0 +1,828 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header_logo {
+  display: flex;
+  align-items: center;
+  margin: 32px 0 32px 35px;
+  width: 220px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header_logo img {
+  margin-right: 9px;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+  color: black;
+}
+
+.header_arrow {
+  margin-left: 85px;
+  margin-right: 25.5px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.header_arrow:hover {
+  transform: scale(1.2) translateZ(30px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+/* Основные стили для .header_search */
+.header_search {
+  display: flex;
+  position: relative;
+  align-items: center;
+  color: rgba(120, 116, 134, 1);
+  background-color: rgba(80, 48, 229, 0.08);
+  width: 417px;
+  height: 44px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: 32px;
+  margin-right: auto;
+  margin-bottom: 32px;
+  margin-left: 60px;
+  min-width: 330px;
+  transition: all 0.3s ease;
+  max-width: 417px; /* Максимальная ширина */
+  min-width: 220px; /* Минимальная ширина */
+  overflow: hidden;
+}
+
+.header_search {
+  cursor: text; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+  transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.header_search:hover {
+  transform: scale(1.01) translateZ(2px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+/* Стили для .search_input */
+.search_input {
+  margin: 10px 16px 10px 16px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .header_search {
+    margin-left: 60px; /* Зафиксированное значение */
+    margin-right: 20px;
+  }
+}
+
+/* Анимация для иконок */
+.header_icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 50px 32px 0;
+}
+
+/* Стиль для иконок */
+.header_icon {
+  font-size: 40px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Стиль при наведении на иконки */
+.header_icon:hover {
+  transform: scale(1.2) translateZ(30px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.header_icons_list {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+.header_icons_list li {
+  margin-right: 24px;
+}
+
+.header_icon {
+}
+
+.header_link {
+}
+
+.header_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.header_user:hover {
+  transform: scale(1.02) translateZ(2px); /* Увеличиваем и выдвигаем вперед */
+}
+
+.header_user_name {
+  display: flex;
+  flex-direction: column;
+  margin: 24px auto 22px 0;
+  font-size: 16px;
+  white-space: nowrap; /
+}
+
+.header_user_name .location {
+  display: block;
+  font-size: 14px;
+  color: rgba(120, 116, 134, 1);
+  white-space: nowrap; /
+}
+
+.header_user_avatar {
+  display: flex;
+  margin: 22px 35px 25px 22px;
+}
+
+.separator_header {
+  height: 1px;
+  background-color: rgba(219, 219, 219, 1);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 260px repeat(3, minmax(330px, 1fr));
+  grid-template-rows: auto; /* Две строки: заголовок и контент */
+  grid-template-areas:
+    "sidebar section_content section_content section_content"
+    "sidebar section_to_do section_on_progress section_done";
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-top: 33px;
+  gap: 20px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.sidebar_menu {
+  display: grid;
+}
+
+.sidebar_menu_top {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar_list_top {
+  display: flex;
+  position: relative; /* Для применения анимации к родительскому элементу */
+  align-items: center; /* Выравнивание текста и иконки по центру */
+  margin-bottom: 25px;
+}
+
+/* Стили для текста ссылок */
+.sidebar_link {
+  position: relative;
+  color: rgba(120, 116, 134, 1);
+  font-size: 16px;
+  text-decoration: none; /* Убираем стандартное подчеркивание */
+  margin-left: 14px; /* Отступ между иконкой и текстом */
+}
+
+/* Обновляем цвет текста, чтобы он не менялся при наведении */
+.sidebar_list_top:hover .sidebar_link {
+  color: rgba(120, 116, 134, 1);
+}
+
+/* Стили для иконки */
+.sidebar_icon_top {
+  position: relative;
+  margin-right: 14px;
+}
+
+.sidebar_list_top:hover {
+  background-color: rgba(80, 48, 229, 0.08); /* Легкое изменение фона */
+  transform: scale(1.03); /* Легкое увеличение элемента */
+  box-shadow: 0 4px 8px #ffffff; /* Мягкая тень вокруг элемента */
+  text-shadow: 0 1px 2px #f0f0f0; /* Легкое размытие текста */
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease, text-shadow 0.3s ease; /* Плавные переходы */
+  box-sizing: border-box;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Псевдоэлементы для анимации на ссылках */
+.sidebar_list_top:before,
+.sidebar_list_top:after,
+.sidebar_icon_top:before,
+.sidebar_icon_top:after,
+.sidebar_link:before,
+.sidebar_link:after {
+  content: "";
+  position: absolute;
+  transition: transform 0.5s ease;
+}
+
+.effect1 {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.effect1:before {
+  bottom: 0;
+  width: 180px;
+  height: 1px;
+  background: rgba(80, 48, 229, 0.3);
+  transform: scaleX(0);
+  border-radius: 4px;
+  left: 10px; /* Центрируем по горизонтали */
+}
+
+.effect1:hover:before {
+  transform: scaleX(1);
+}
+
+.effect2 {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.effect2:before {
+  left: 10px;
+  bottom: 0;
+  width: 180px;
+  height: 1px;
+  background: rgba(80, 48, 229, 0.3);
+  transform: scaleX(0);
+}
+
+.effect2:hover:before {
+  transform: scaleX(1);
+}
+
+.effect3 {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.effect3:before {
+  left: 10px;
+  bottom: 0;
+  width: 180px;
+  height: 1px;
+  background: rgba(80, 48, 229, 0.3);
+  transform: scaleX(0);
+}
+
+.effect3:hover:before {
+  transform: scaleX(1);
+}
+
+.effect4 {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.effect4:before {
+  left: 10px;
+  bottom: 0;
+  width: 180px;
+  height: 1px;
+  background: rgba(80, 48, 229, 0.3);
+  transform: scaleX(0);
+}
+
+.effect4:hover:before {
+  transform: scaleX(1);
+}
+
+.effect5 {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.effect5:before {
+  left: 10px;
+  bottom: 0;
+  width: 180px;
+  height: 1px;
+  background: rgba(80, 48, 229, 0.3);
+  transform: scaleX(0);
+}
+
+.effect5:hover:before {
+  transform: scaleX(1);
+}
+
+.separator_vertical {
+  position: fixed; /* Используем fixed, чтобы линия была фиксированной на экране */
+  left: 260px; /* Расположить справа от сайдбара */
+  top: 0;
+  height: 100vh; /* Высота линии — на всю высоту экрана */
+  width: 1px;
+  background-color: rgba(219, 219, 219, 1);
+  z-index: 5; /* Убедитесь, что линия будет поверх других элементов */
+}
+
+.separator_gorizontal {
+  margin-left: 260px;
+  width: 1px;
+  background-color: rgba(219, 219, 219, 1);
+}
+
+.my_projects {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(120, 116, 134, 1);
+  text-transform: uppercase;
+}
+
+.my_projects .icon_add_square {
+  display: flex;
+  align-items: center;
+  margin-left: 93px;
+  margin-right: 33px;
+}
+
+.icon_add_square {
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.icon_add_square:hover {
+  transform: scale(1.2) translateZ(30px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.sidebar_menu_bottom {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 2px;
+}
+
+.sidebar_list_bottom {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.sidebar_icon_bottom {
+  margin-right: 14px;
+}
+
+.sidebar_list_bottom:hover {
+  background-color: rgba(80, 48, 229, 0.08); /* Легкое изменение фона */
+  transform: scale(1.03); /* Легкое увеличение элемента */
+  box-shadow: 0 4px 8px #ffffff; /* Мягкая тень вокруг элемента */
+  text-shadow: 0 1px 2px #f0f0f0; /* Легкое размытие текста */
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease, text-shadow 0.3s ease; /* Плавные переходы */
+  box-sizing: border-box;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Псевдоэлементы для анимации на ссылках */
+.sidebar_list_bottom:before,
+.sidebar_list_bottom:after,
+.sidebar_list_bottom:before,
+.sidebar_list_bottom:after,
+.sidebar_link:before,
+.sidebar_link:after {
+  content: "";
+  position: absolute;
+  transition: transform 0.5s ease;
+}
+
+/* Обновляем цвет текста, чтобы он не менялся при наведении */
+.sidebar_list_bottom:hover .sidebar_link {
+  color: rgba(120, 116, 134, 1); /* Прямо указываем цвет текста при наведении */
+}
+
+.sidebar_icon_bottom_first {
+  margin-left: 3px;
+}
+
+.text_and_icon {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.icon_ellipsis {
+  margin-left: 50px;
+}
+
+.section_content {
+  grid-area: section_content;
+  display: flex;
+  align-items: center;
+}
+
+.section_title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+.content_title {
+  font-size: 40px;
+  width: auto;
+  height: 56px;
+  margin: 0;
+  margin-right: 19px;
+}
+
+.items_title_left {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.icon_title_left_first {
+  margin-right: 10px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.icon_title_left_first:hover {
+  transform: scale(1.1) translateZ(10px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.icon_title_left_second {
+  margin-right: auto;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.icon_title_left_second:hover {
+  transform: scale(1.1) translateZ(10px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.items_title_right {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.items_title_right:hover {
+  transform: scale(1.07) translateZ(7px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.invite_title {
+  padding-left: 7px;
+}
+
+.friends_avatars {
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.friends_avatars:hover {
+  transform: scale(1.02) translateZ(2px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.section_to_do {
+  grid-area: section_to_do;
+}
+
+.section_on_progress {
+  grid-area: section_on_progress;
+}
+
+.section_done {
+  grid-area: section_done;
+}
+
+.section_to_do,
+.section_on_progress,
+.section_done {
+  background-color: rgba(80, 48, 229, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 0;
+  margin-bottom: auto;
+  margin-left: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.header_to_do,
+.header_on_progress,
+.header_done {
+  display: flex;
+  align-items: center;
+}
+
+.card_ellipse {
+  display: flex;
+  margin-right: 8px;
+}
+
+.content_title_to_do,
+.content_title_on_progress,
+.content_title_done {
+  size: 16px;
+  margin-right: 12px;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  border-radius: 50%;
+  background-color: rgba(219, 219, 219, 1);
+}
+
+.icons_cards {
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.icons_cards:hover {
+  transform: scale(1.2) translateZ(30px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.card_separator_to_do {
+  height: 3px;
+  background-color: rgba(80, 48, 229, 1);
+  width: 100%;
+}
+
+.card_separator_on_progress {
+  height: 3px;
+  background-color: rgba(147, 45, 147, 1);
+  width: 100%;
+}
+
+.card_separator_done {
+  height: 3px;
+  background-color: rgba(118, 165, 234, 1);
+  width: 100%;
+}
+
+.card_first {
+  margin: 28px 0 20px 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card_first:hover {
+  transform: scale(1.02) translateZ(2px); /* Увеличиваем и выдвигаем вперед */
+}
+
+.card_second {
+  margin: 28px 0 20px 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card_second:hover {
+  transform: scale(1.02) translateZ(2px); /* Увеличиваем и выдвигаем вперед */
+}
+
+.card_third {
+  margin: 28px 0 20px 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card_third:hover {
+  transform: scale(1.02) translateZ(2px); /* Увеличиваем и выдвигаем вперед */
+}
+
+.card_status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(213, 141, 73, 1);
+  background-color: rgba(223, 168, 116, 0.2);
+  border-radius: 4px;
+  width: auto;
+  height: 23px;
+  padding: 2px 5px 2px 5px;
+  font-size: 12px;
+  line-height: 1.5px;
+  letter-spacing: 0.07em;
+}
+
+.icon_points {
+  cursor: pointer; /* Указатель при наведении */
+  perspective: 1000px; /* Создаем перспективу для 3D-эффекта */
+  transform-origin: center; /* Точка начала трансформации */
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.icon_points:hover {
+  transform: scale(1.1) translateZ(20px); /* Увеличиваем и выдвигаем вперед */
+  opacity: 1; /* Убираем полупрозрачность */
+}
+
+.card_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card_content {
+  font-size: 18px;
+}
+
+.card_content:hover {
+  color: rgba(0, 0, 0, 0.9);
+  transition: color 0.1s ease; /* добавим плавное изменение цвета */
+}
+
+.card_content_text:hover {
+  color: rgba(0, 0, 0, 0.9);
+  transition: color 0.1s ease;
+}
+
+p {
+  font-size: 14px;
+}
+
+.card_picture {
+  max-width: 100%; /* Гарантирует, что изображение не будет шире контейнера */
+  height: auto; /* Пропорциональная высота */
+  object-fit: contain; /* Сохраняем пропорции изображения */
+  display: block;
+  width: 100%; /* Убедитесь, что оно не превышает ширину родителя */
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.card_footer {
+  display: flex;
+  align-items: center; /* Выровнять элементы по вертикали */
+}
+
+.card_footer img:first-of-type {
+  margin-right: auto; /* Растягивающееся пространство между первым и вторым элементами */
+}
+
+.card_footer img:nth-of-type(2) {
+  margin-right: 5px; /* 5px отступ после второго изображения */
+}
+
+.card_footer p:nth-of-type(1) {
+  margin-right: 12px; /* 12px отступ после второго изображения */
+}
+
+.card_footer img:nth-of-type(3) {
+  margin-right: 5px; /* 5px отступ после текста */
+}
+
+/* Обнуление индивидуальных отступов для всех элементов */
+.card_footer img,
+.card_footer p {
+  margin: 0;
+}
+
+
+.card_comment {
+  position: relative; /* Добавлено для псевдоэлементов */
+  cursor: pointer; /* Указатель мыши для интерактивности */
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  transition: color 0.5s ease;
+}
+
+.card_comment:hover {
+  color: rgba(0, 0, 0, 0.9); /* Изменение цвета при наведении */
+}
+
+/* Псевдоэлементы для анимации */
+.card_comment:before {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Расположение под текстом */
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: rgba(0, 0, 0, 0.9); /* Цвет анимации */
+  transform: scaleX(0); /* Начальное состояние */
+  transform-origin: center; /* Анимация начинается с левого края */
+  transition: transform 0.7s ease;
+}
+
+.card_comment:hover:before {
+  transform: scaleX(1); /* Анимация расширения */
+}
+
+
+.card_file {
+  position: relative; /* Добавлено для псевдоэлементов */
+  cursor: pointer; /* Указатель мыши для интерактивности */
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  transition: color 0.5s ease;
+}
+
+.card_file:hover {
+  color: rgba(0, 0, 0, 0.9); /* Изменение цвета при наведении */
+}
+
+/* Псевдоэлементы для анимации */
+.card_file:before {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Расположение под текстом */
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: rgba(0, 0, 0, 0.9); /* Цвет анимации */
+  transform: scaleX(0); /* Начальное состояние */
+  transform-origin: center; /* Анимация начинается с левого края */
+  transition: transform 0.7s ease;
+}
+
+.card_file:hover:before {
+  transform: scaleX(1); /* Анимация расширения */
+}
